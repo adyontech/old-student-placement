@@ -1,0 +1,14 @@
+{
+    "amountInfo": {
+        "plans": [{
+            "planName": "simple",
+            "planAmount": "4"
+        }, {
+            "planName": "hard",
+            "planAmount": "4"
+        }, {
+            "planName": "tough",
+            "planAmount": "4"
+        }]
+    }
+}
