@@ -13,12 +13,12 @@
   color: #2c3e50;
   height: 100%;
 }
-.headline,
+/* .headline,
 .title,
 .subheading,
 .display-1 {
   font-family: Montserrat !important;
-}
+} */
 </style>
 
 <script>

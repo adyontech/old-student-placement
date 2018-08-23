@@ -1,20 +1,20 @@
-<template>
-  <div class="px-5 mx-4" style="border-bottom:2px solid black">
+ <template>
+  <div class="px-5 mx-4">
     <div class="white">
       <v-toolbar :height="56" flat :ripple="false" color="white " class="pl-5">
-        <v-toolbar-title class="blue--text ml-5">
+        <v-toolbar-title class="blue--text ml-5 pt-3">
           <router-link color="primary--text" to="/" style="text-decoration:none" exact> <img src="./../../assets/images/outer-img/favicon-32x32.png" alt="" srcset=""> </router-link>
         </v-toolbar-title>
-        <v-toolbar-title class="black--tex ml-4 pt-2" style="height: 55px" :class="{'border-bott': isHome}">
+        <v-toolbar-title class="black--tex ml-4 pt-3" style="height: 55px" :class="{'border-bott': isHome}">
           <router-link color="primary--text" to="/" class="caption pc_nav" style="text-decoration:none;" exact> HOME </router-link>
         </v-toolbar-title>
-        <v-toolbar-title class="black--tex ml-4 pt-2" style="height: 55px" :class="{'border-bott': isProfile}">
+        <v-toolbar-title class="black--tex ml-4 pt-3" style="height: 55px" :class="{'border-bott': isProfile}">
           <router-link color="primary--text" to="/features" class="caption pc_nav" style="text-decoration:none;" exact> PROFILE </router-link>
         </v-toolbar-title>
-        <v-toolbar-title class="black--text ml-4 pt-2" style="height: 55px" :class="{'border-bott': isJob}">
+        <v-toolbar-title class="black--text ml-4 pt-3" style="height: 55px" :class="{'border-bott': isJob}">
           <router-link color="primary--text" to="/pricing" class="caption" style="text-decoration:none" exact> JOBS </router-link>
         </v-toolbar-title>
-        <v-toolbar-title class="black--text ml-4 pt-2" style="height: 55px" :class="{'border-bott': isCompany}">
+        <v-toolbar-title class="black--text ml-4 pt-3" style="height: 55px" :class="{'border-bott': isCompany}">
           <router-link color="primary--text" to="/contact" class="caption" style="text-decoration:none" exact> COMPANIES </router-link>
         </v-toolbar-title>
         <v-spacer></v-spacer>
@@ -35,7 +35,7 @@
                 </v-avatar> -->
           <span class="pt-3 mr-4">
             <div class="">
-              <v-menu>
+              <v-menu absolute offset-y>
                 <v-avatar size="34" tile slot="activator">
                   <img src="https://cdn.vuetifyjs.com/images/john.jpg " alt="John ">
                 </v-avatar>
