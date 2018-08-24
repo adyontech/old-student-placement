@@ -10,27 +10,30 @@
                                 List
                             </v-btn>
                             <v-list>
-                                <v-list-tile v-for="(item, index) in listType" :key="index">
-                                    <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                                <v-list-tile v-on:click="setFilterType('all')">
+                                    All
+                                </v-list-tile>
+                                <v-list-tile v-on:click="setFilterType('stared')">
+                                    Started
                                 </v-list-tile>
                             </v-list>
                         </v-menu>
-                        <div class="body-1 ml-3">Searching for all companies</div>
+                        <div class="body-1 ml-3">Searching for {{listTypeModel}} companies</div>
                         <v-text-field class="mx-3" flat label="Search" prepend-inner-icon="search" outline></v-text-field>
                     </v-flex>
                 </v-layout>
-                <v-layout align-center justify-space-between row class="mt-3">
+                <v-layout align-center row class="mt-3">
                     <v-flex md-3 text-sm-left>
                         <div class="body-1 ml-5">Type</div>
-                        <v-overflow-btn :items="dropdown_icon" label="Segmented Btn" segmented target="#dropdown-example"></v-overflow-btn>
+                        <v-overflow-btn :items="dropdown_type" label="Editable Btn" editable item-value="text"></v-overflow-btn>
                     </v-flex>
                     <v-flex md-3 text-sm-left>
                         <div class="body-1 ml-5">Location</div>
-                        <v-overflow-btn :items="dropdown_icon" label="Segmented Btn" segmented target="#dropdown-example"></v-overflow-btn>
+                        <v-overflow-btn :items="dropdown_edit" label="Editable Btn" editable item-value="text"></v-overflow-btn>
                     </v-flex>
                     <v-flex md-3 text-sm-left>
                         <div class="body-1 ml-5">Market</div>
-                        <v-overflow-btn :items="dropdown_icon" label="Segmented Btn" segmented target="#dropdown-example"></v-overflow-btn>
+                        <v-overflow-btn :items="dropdown_edit" label="Editable Btn" editable item-value="text"></v-overflow-btn>
                     </v-flex>
                     <v-flex md3 text-sm-left px-5>
                         <div class="body-1 ml-5">Range</div>
@@ -40,7 +43,11 @@
                         </div>
                     </v-flex>
                 </v-layout>
+                <v-layout>
+                    <v-flex>
 
+                    </v-flex>
+                </v-layout>
             </v-flex>
         </v-layout>
     </div>
@@ -51,20 +58,23 @@
 <script>
 export default {
   data: () => ({
-    dropdown_font: ['Arial', 'Calibri', 'Courier', 'Verdana'],
-    dropdown_icon: [
-      { text: 'list', callback: () => console.log('list') },
-      { text: 'favorite', callback: () => console.log('favorite') },
-      { text: 'delete', callback: () => console.log('delete') },
+    dropdown_type: [
+      { text: 'Start-up', callback: () => console.log('list') },
+      { text: 'VC Firm', callback: () => console.log('list') },
+      { text: 'Incubators', callback: () => console.log('list') },
+      { text: 'Private company' },
+      { text: 'SaaS' },
+      { text: 'Others' },
     ],
     dropdown_edit: [
-      { text: '100%' },
-      { text: '75%' },
-      { text: '50%' },
-      { text: '25%' },
-      { text: '0%' },
+      { text: 'Start-up', callback: () => console.log('list') },
+      { text: 'VC Firm', callback: () => console.log('list') },
+      { text: 'Incubators', callback: () => console.log('list') },
+      { text: 'Private company' },
+      { text: 'SaaS' },
+      { text: 'Others' },
     ],
-    listType: [{ title: 'All' }, { title: 'Started' }],
+    listTypeModel: 'all',
     slider: 45,
     volume: 10,
     price: [110, 440],
@@ -72,5 +82,10 @@ export default {
     max: 9000000,
     range: [5000000, 70000000],
   }),
+  methods: {
+    setFilterType: value => {
+      this.listTypeModel = value;
+    },
+  },
 };
 </script>
