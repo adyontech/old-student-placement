@@ -3,26 +3,28 @@
         <v-layout justify-center>
             <v-flex xs11 md10 v-bind:class="{white: $vuetify.breakpoint.mdAndUp}">
 
-                <v-layout justify-center row wrap class="pt-2 mt-5 white">
-                    <v-flex xs12 md2 class="white d-flex" align-content-start text-xs-left>
-                        <v-menu offset-y class="ml-3 mb-2">
-                            <v-btn slot="activator" color="primary" dark>
-                                List by
-                            </v-btn>
-                            <v-list>
-                                <v-list-tile v-on:click="setFilterType('all')">
-                                    All
-                                </v-list-tile>
-                                <v-list-tile v-on:click="setFilterType('stared')">
-                                    Started
-                                </v-list-tile>
-                            </v-list>
-                        </v-menu>
-                    </v-flex>
-                    <v-flex xs12 md8 flat text-xs-left>
-                        <div class="body-1 ml-3">Searching for {{listTypeModel}} companies</div>
+                <v-layout align-center justify-center class="pt-2 mt-5 white">
+                    <v-flex xs10 md8 class="white" align-content-start text-xs-left>
+                        <v-layout row>
+                            <div class="body-1 ml-3 pt-3">Searching for {{listTypeModel}} companies</div>
+                            <v-spacer></v-spacer>
+                            <v-menu offset-y class="ml-3 mb-2 mr-2">
+                                <v-btn slot="activator" color="primary" dark>
+                                    List by
+                                </v-btn>
+                                <v-list>
+                                    <v-list-tile v-on:click="setFilterType('all')">
+                                        All
+                                    </v-list-tile>
+                                    <v-list-tile v-on:click="setFilterType('stared')">
+                                        Started
+                                    </v-list-tile>
+                                </v-list>
+                            </v-menu>
+                        </v-layout>
                         <v-text-field class="mx-3" flat label="Search" prepend-inner-icon="search" outline></v-text-field>
                     </v-flex>
+
                 </v-layout>
                 <v-layout align-center wrap row class="mt-3 pt-2 py-2 px-5 white">
                     <v-flex xs6 sm5 md3 px-1 text-xs-left>
@@ -108,6 +110,8 @@
                                             <div class="body-2 font-weight-regular">{{item.companyName}} </div>
                                             <v-spacer></v-spacer>
                                             <v-icon>star</v-icon>
+                                            <v-icon>star</v-icon>
+
                                         </v-layout>
                                     </v-flex>
                                 </v-layout>
@@ -163,6 +167,7 @@ export default {
         market: 'Gst',
         avgSalary: '45K-60k',
         type: 'Start-up',
+        star: false,
       },
       {
         logoImg: './../../../assets/images/outer-img/favicon-32x32.png',
@@ -171,6 +176,7 @@ export default {
         market: 'saas',
         avgSalary: '90K-120k',
         type: 'GLobalcompany',
+        star: true,
       },
       {
         logoImg: './../../../assets/images/outer-img/favicon-32x32.png',
@@ -179,6 +185,7 @@ export default {
         market: 'Airplane',
         avgSalary: '150k-160k',
         type: 'Vc firm',
+        star: true,
       },
       {
         logoImg: './../../../assets/images/outer-img/favicon-32x32.png',
@@ -187,6 +194,7 @@ export default {
         market: 'web',
         avgSalary: '20k-30k',
         type: 'Incubators',
+        star: false,
       },
       {
         logoImg: './../../../assets/images/outer-img/favicon-32x32.png',
@@ -195,6 +203,7 @@ export default {
         market: 'Gst',
         avgSalary: '45K-60k',
         type: 'saas',
+        star: true,
       },
       {
         logoImg: './../../../assets/images/outer-img/favicon-32x32.png',
@@ -203,6 +212,7 @@ export default {
         market: 'Gst',
         avgSalary: '45K-60k',
         type: 'Private company',
+        star: false,
       },
     ],
     dropdown_type: [
