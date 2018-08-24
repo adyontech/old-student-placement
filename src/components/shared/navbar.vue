@@ -2,6 +2,7 @@
   <div class="px-5 white">
     <div>
       <v-toolbar :height="56" flat :ripple="false" color="white " class="pl-5">
+
         <v-toolbar-title class="blue--text ml-5 pt-3">
           <router-link color="primary--text" to="/" style="text-decoration:none" exact> <img src="./../../assets/images/outer-img/favicon-32x32.png" alt="" srcset=""> </router-link>
         </v-toolbar-title>
@@ -17,6 +18,7 @@
         <v-toolbar-title class="black--text ml-4 pt-3" v-if="$vuetify.breakpoint.mdAndUp" style="height: 55px" :class="{'border-bott': isCompany}">
           <router-link color="primary--text" to="/company" class="caption" style="text-decoration:none" exact> COMPANIES </router-link>
         </v-toolbar-title>
+        <v-toolbar-side-icon @click="toggleDrawer"></v-toolbar-side-icon>
         <v-spacer></v-spacer>
         <v-toolbar-items class="mr-5">
           <span class="pt-3 mr-4">
@@ -87,6 +89,7 @@ a {
 export default {
   data() {
     return {
+      drawerState: false,
       isHome: false,
       isProfile: false,
       isJob: false,
@@ -114,6 +117,13 @@ export default {
     if (this.$route.path === '/auth/signup') {
       this.showSignUpBtn = false;
     }
+  },
+  methods: {
+    toggleDrawer() {
+      this.drawerState = !this.drawerState;
+      console.log('sa');
+      this.$emit('toggleDrawerValue', this.drawerState);
+    },
   },
 };
 </script>

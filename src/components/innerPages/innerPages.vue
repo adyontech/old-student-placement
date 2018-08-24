@@ -25,8 +25,7 @@
                     </v-list-tile>
                 </v-list>
             </v-navigation-drawer>
-            <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-            <navbar></navbar>
+            <navbar v-on:toggleDrawerValue="drawerSideToggle($event)"></navbar>
             <router-view></router-view>
             <footers></footers>
         </div>
@@ -38,11 +37,17 @@ import navbar from '../shared/navbar.vue';
 import footers from '../shared/footer.vue';
 export default {
   data: () => ({
-    drawer: true,
+    drawer: false,
   }),
   components: {
     navbar: navbar,
     footers: footers,
+  },
+  methods: {
+    drawerSideToggle(value) {
+      console.log(value);
+      this.drawer = value;
+    },
   },
 };
 </script>
