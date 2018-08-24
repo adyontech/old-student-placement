@@ -24,7 +24,7 @@
                         <v-text-field class="mx-3" flat label="Search" prepend-inner-icon="search" outline></v-text-field>
                     </v-flex>
                 </v-layout>
-                <v-layout align-center wrap row class="mt-3 py-2 px-5 white">
+                <v-layout align-center wrap row class="mt-3 pt-2 py-2 px-5 white">
                     <v-flex xs6 sm5 md3 px-1 text-xs-left>
                         <div class="body-1 ml-3">Type</div>
                         <v-overflow-btn :items="dropdown_type" label="Editable Btn" editable item-value="text"></v-overflow-btn>

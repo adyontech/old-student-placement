@@ -97,7 +97,6 @@ export default {
     };
   },
   created() {
-    console.log(this.$route);
     switch (this.$route.path) {
       case '/':
         this.isHome = true;

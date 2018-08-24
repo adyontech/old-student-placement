@@ -13,26 +13,26 @@
                     </v-list>
                 </v-toolbar>
                 <v-list text-xs-center>
-                    <v-list-tile>
+                    <v-list-tile to="/">
                         <v-list-tile-action>
                             <v-icon>home</v-icon>
                         </v-list-tile-action>
                         <v-list-tile-title>Home</v-list-tile-title>
                     </v-list-tile>
 
-                    <v-list-tile>
+                    <v-list-tile to="company">
                         <v-list-tile-action>
                             <v-icon>book</v-icon>
                         </v-list-tile-action>
                         <v-list-tile-title>Companies</v-list-tile-title>
                     </v-list-tile>
-                    <v-list-tile>
+                    <v-list-tile to="jobs">
                         <v-list-tile-action>
                             <v-icon>book</v-icon>
                         </v-list-tile-action>
                         <v-list-tile-title>Jobs</v-list-tile-title>
                     </v-list-tile>
-                    <v-list-tile>
+                    <v-list-tile to="profile">
                         <v-list-tile-action>
                             <v-icon>settings</v-icon>
                         </v-list-tile-action>
@@ -41,14 +41,14 @@
                 </v-list>
                 <v-divider />
                 <div text-xs-center>
-                    <v-list-tile>
+                    <v-list-tile to="help">
                         <v-list-tile-action>
                             <v-icon>help</v-icon>
                         </v-list-tile-action>
                         <v-list-tile-title>Help</v-list-tile-title>
                     </v-list-tile>
-                    <v-list-tile class="ml-5 pr-2">
-                        <v-btn color="info">Log Out</v-btn>
+                    <v-list-tile class="ml-5 pl-2" @click="logout()">
+                        <v-btn right color="info">Log Out</v-btn>
                     </v-list-tile>
                 </div>
             </v-navigation-drawer>
@@ -64,7 +64,7 @@ import navbar from '../shared/navbar.vue';
 import footers from '../shared/footer.vue';
 export default {
   data: () => ({
-    drawer: true,
+    drawer: false,
   }),
   components: {
     navbar: navbar,
@@ -73,6 +73,9 @@ export default {
   methods: {
     drawerSideToggle(value) {
       this.drawer = !this.drawer;
+    },
+    logout() {
+      console.log('logout');
     },
   },
 };
