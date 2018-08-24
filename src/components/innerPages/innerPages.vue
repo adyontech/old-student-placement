@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <div class="green">
+        <div style="background-color: #f2f3f4">
             <navbar></navbar>
             <router-view></router-view>
             <footers></footers>

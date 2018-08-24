@@ -1,7 +1,7 @@
 <template fillHeight >
-    <div>
+    <div class="mt-3">
         <v-layout justify-center>
-            <v-flex xs12 md10 class="pink">
+            <v-flex xs12 md10 class="white">
 
                 <v-layout justify-center class="mt-5">
                     <v-flex xs12 md10 class="white" align-content-start text-sm-left>
@@ -49,15 +49,15 @@
                             <v-layout row>
                                 <v-flex md3>
                                     <div class="title">Company </div>
-                                    <v-flex md3>
-                                        <div class="title">Location </div>
-                                    </v-flex>
-                                    <v-flex md2>
-                                    </v-flex>
-                                    <v-flex md2>
-                                        <div class="title">Type </div>
-                                    </v-flex>
+                                </v-flex>
+                                <v-flex md3>
+                                    <div class="title">Location </div>
+                                </v-flex>
+                                <v-flex md2>
                                     <div class="title">Market </div>
+                                </v-flex>
+                                <v-flex md2>
+                                    <div class="title">Type </div>
                                 </v-flex>
                                 <v-flex md2>
                                     <div class="title">Avg Salary</div>
@@ -81,16 +81,12 @@
                                     <div class="body-1">{{item.market}}</div>
                                 </v-flex>
                                 <v-flex md2>
-                                    <div class="body-1">{{item.market}}</div>
+                                    <div class="body-1">{{item.type}}</div>
                                 </v-flex>
                                 <v-flex class="d-flex" md2>
                                     <div class="body-1 text-xs-right">{{item.avgSalary}}</div>
                                     <v-icon class="pb-3">star</v-icon>
                                 </v-flex>
-                                <!-- <v-flex md2>
-                                    <v-icon>star</v-icon>
-                                    <v-icon>star</v-icon>
-                                </v-flex> -->
                             </v-layout>
                         </v-flex>
                     </v-layout>
@@ -117,6 +113,7 @@ export default {
         location: 'jaipur, chennai',
         market: 'Gst',
         avgSalary: '45K-60k',
+        type: 'Start-up',
       },
       {
         logoImg: './../../../assets/images/outer-img/favicon-32x32.png',
@@ -124,6 +121,7 @@ export default {
         location: 'jaipur, chennai',
         market: 'saas',
         avgSalary: '90K-120k',
+        type: 'GLobalcompany',
       },
       {
         logoImg: './../../../assets/images/outer-img/favicon-32x32.png',
@@ -131,6 +129,7 @@ export default {
         location: 'jaipur, chennai',
         market: 'Airplane',
         avgSalary: '150k-160k',
+        type: 'Vc firm',
       },
       {
         logoImg: './../../../assets/images/outer-img/favicon-32x32.png',
@@ -138,6 +137,7 @@ export default {
         location: 'jaipur, chennai',
         market: 'web',
         avgSalary: '20k-30k',
+        type: 'Incubators',
       },
       {
         logoImg: './../../../assets/images/outer-img/favicon-32x32.png',
@@ -145,6 +145,7 @@ export default {
         location: 'jaipur, chennai',
         market: 'Gst',
         avgSalary: '45K-60k',
+        type: 'saas',
       },
       {
         logoImg: './../../../assets/images/outer-img/favicon-32x32.png',
@@ -152,6 +153,7 @@ export default {
         location: 'jaipur, chennai',
         market: 'Gst',
         avgSalary: '45K-60k',
+        type: 'Private company',
       },
     ],
     dropdown_type: [
