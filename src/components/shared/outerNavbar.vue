@@ -1,5 +1,5 @@
  <template>
-  <div class="px-5 mx-4">
+  <div class="px-5">
     <div class="white">
       <v-toolbar :height="56" flat :ripple="false" color="white " class="pl-5">
         <v-toolbar-title class="blue--text ml-5 pt-3">

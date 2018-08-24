@@ -1,6 +1,6 @@
  <template>
-  <div class="px-5">
-    <div class="white">
+  <div class="px-5 white">
+    <div>
       <v-toolbar :height="56" flat :ripple="false" color="white " class="pl-5">
         <v-toolbar-title class="blue--text ml-5 pt-3">
           <router-link color="primary--text" to="/" style="text-decoration:none" exact> <img src="./../../assets/images/outer-img/favicon-32x32.png" alt="" srcset=""> </router-link>
@@ -9,13 +9,13 @@
           <router-link color="primary--text" to="/" class="caption pc_nav" style="text-decoration:none;" exact> HOME </router-link>
         </v-toolbar-title>
         <v-toolbar-title class="black--tex ml-4 pt-3" style="height: 55px" :class="{'border-bott': isProfile}">
-          <router-link color="primary--text" to="/features" class="caption pc_nav" style="text-decoration:none;" exact> PROFILE </router-link>
+          <router-link color="primary--text" to="/profile" class="caption pc_nav" style="text-decoration:none;" exact> PROFILE </router-link>
         </v-toolbar-title>
         <v-toolbar-title class="black--text ml-4 pt-3" style="height: 55px" :class="{'border-bott': isJob}">
-          <router-link color="primary--text" to="/pricing" class="caption" style="text-decoration:none" exact> JOBS </router-link>
+          <router-link color="primary--text" to="/jobs" class="caption" style="text-decoration:none" exact> JOBS </router-link>
         </v-toolbar-title>
         <v-toolbar-title class="black--text ml-4 pt-3" style="height: 55px" :class="{'border-bott': isCompany}">
-          <router-link color="primary--text" to="/contact" class="caption" style="text-decoration:none" exact> COMPANIES </router-link>
+          <router-link color="primary--text" to="/company" class="caption" style="text-decoration:none" exact> COMPANIES </router-link>
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-toolbar-items class="mr-5">
@@ -39,9 +39,25 @@
                 <v-avatar size="34" tile slot="activator">
                   <img src="https://cdn.vuetifyjs.com/images/john.jpg " alt="John ">
                 </v-avatar>
-                <v-list>
-                  <v-list-tile v-for="(item, index) in items" :key="index">
-                    <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                <v-list class="py-0 px-0">
+                  <v-list-tile :to="{path:'/edit/profile'}">
+                    <v-list-tile-avatar class="pr-2">
+                      <v-icon>person</v-icon>
+                    </v-list-tile-avatar>
+                    Profile
+                  </v-list-tile>
+                  <v-list-tile :to="{path:'/edit/profile'}">
+                    <v-list-tile-avatar class="pr-2">
+                      <v-icon>person</v-icon>
+                    </v-list-tile-avatar>
+                    Help
+                  </v-list-tile>
+                  <v-divider></v-divider>
+                  <v-list-tile class="red--text text--accent-2" @click="logout()">
+                    <v-list-tile-avatar class="pr-2">
+                      <v-icon color="red accent-2">power_settings_new</v-icon>
+                    </v-list-tile-avatar>
+                    Logout
                   </v-list-tile>
                 </v-list>
               </v-menu>
@@ -78,12 +94,7 @@ export default {
       showLogInBtn: true,
       showSignUpBtn: true,
 
-      items: [
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me 2' },
-      ],
+      items: [{ title: 'Help' }, { title: 'Log Out' }],
     };
   },
   created() {

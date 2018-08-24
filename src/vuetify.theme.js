@@ -28,8 +28,10 @@ import {
     VStepper,
     VDivider,
     VMenu,
+    VRangeSlider,
     VCheckbox,
-    VAutocomplete
+    VAutocomplete,
+    VOverflowBtn
 } from 'vuetify'
 
 Vue.use(Vuetify, {
@@ -38,6 +40,7 @@ Vue.use(Vuetify, {
     },
     components: {
         VApp,
+        VRangeSlider,
         VRadioGroup,
         VDataTable,
         VAvatar,
@@ -65,6 +68,7 @@ Vue.use(Vuetify, {
         VDivider,
         VMenu,
         VCheckbox,
-        VAutocomplete
+        VAutocomplete,
+        VOverflowBtn
     }
 })

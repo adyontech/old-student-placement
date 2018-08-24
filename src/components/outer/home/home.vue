@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import navbar from './../../shared/outerNavbar.vue';
+import navbar from './../../shared/navbar.vue';
 import outerFooter from './../../shared/outerFooter.vue';
 export default {
   components: {
