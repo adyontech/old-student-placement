@@ -1,10 +1,10 @@
 <template fillHeight >
     <div class="mt-3">
         <v-layout justify-center>
-            <v-flex xs12 md10 class="white">
+            <v-flex xs11 md10 v-bind:class="{white: $vuetify.breakpoint.mdAndUp}">
 
-                <v-layout justify-center class="mt-5">
-                    <v-flex xs12 md10 class="white" align-content-start text-sm-left>
+                <v-layout justify-center row wrap class="pt-2 mt-5 white">
+                    <v-flex xs12 md2 class="white d-flex" align-content-start text-xs-left>
                         <v-menu offset-y class="ml-3 mb-2">
                             <v-btn slot="activator" color="primary" dark>
                                 List by
@@ -18,24 +18,26 @@
                                 </v-list-tile>
                             </v-list>
                         </v-menu>
+                    </v-flex>
+                    <v-flex xs12 md8 flat text-xs-left>
                         <div class="body-1 ml-3">Searching for {{listTypeModel}} companies</div>
                         <v-text-field class="mx-3" flat label="Search" prepend-inner-icon="search" outline></v-text-field>
                     </v-flex>
                 </v-layout>
-                <v-layout align-center wrap row class="mt-3  px-5">
-                    <v-flex xs6 sm5 md3 px-1 text-sm-left>
+                <v-layout align-center wrap row class="mt-3 py-2 px-5 white">
+                    <v-flex xs6 sm5 md3 px-1 text-xs-left>
                         <div class="body-1 ml-3">Type</div>
                         <v-overflow-btn :items="dropdown_type" label="Editable Btn" editable item-value="text"></v-overflow-btn>
                     </v-flex>
-                    <v-flex xs6 sm5 md3 px-1 text-sm-left>
+                    <v-flex xs6 sm5 md3 px-1 text-xs-left>
                         <div class="body-1 ml-3">Location</div>
                         <v-overflow-btn :items="dropdown_edit" label="Editable Btn" editable item-value="text"></v-overflow-btn>
                     </v-flex>
-                    <v-flex xs6 sm5 md3 px-1 text-sm-left>
+                    <v-flex xs6 sm5 md3 px-1 text-xs-left>
                         <div class="body-1 ml-3">Market</div>
                         <v-overflow-btn :items="dropdown_edit" label="Editable Btn" editable item-value="text"></v-overflow-btn>
                     </v-flex>
-                    <v-flex xs6 sm5 md3 text-sm-left px-5>
+                    <v-flex xs6 sm5 md3 text-xs-left px-5>
                         <div class="body-1 ml-3">Range</div>
                         <div class="body-1 ml-3">
                             {{range[0] }}K- {{range[1]}}K
@@ -43,7 +45,7 @@
                         <v-range-slider class="pt-4" v-model="range" :max="max" :min="min"></v-range-slider>
                     </v-flex>
                 </v-layout>
-                <div class="mdscreen mt-3 px-5">
+                <v-card flat class="mdscreen mt-3 px-5" v-if="$vuetify.breakpoint.mdAndUp">
                     <v-layout>
                         <v-flex column>
                             <v-layout row>
@@ -70,9 +72,9 @@
                             <v-layout class="my-4" style="border-bottom: 1px solid #383838  " row v-for="(item, index) in companyData" :key="index">
                                 <v-flex class="d-flex" md3 text-xs-left>
                                     <div class="ml-3">
-                                        <img class="text-sm-right" style="height:25px; width:25px" src="./../../../assets/images/outer-img/favicon-32x32.png" alt="" srcset="">
+                                        <img class="text-xs-right" style="height:25px; width:25px" src="./../../../assets/images/outer-img/favicon-32x32.png" alt="" srcset="">
                                     </div>
-                                    <div class="body-1 text-sm-left">{{item.companyName}} </div>
+                                    <div class="body-1 text-xs-left">{{item.companyName}} </div>
                                 </v-flex>
                                 <v-flex md3>
                                     <div class="body-1">{{item.location}} </div>
@@ -90,7 +92,54 @@
                             </v-layout>
                         </v-flex>
                     </v-layout>
-                </div>
+                </v-card>
+
+                <v-card flat class="smscreen mt-3" v-if="$vuetify.breakpoint.smAndDown">
+                    <v-layout fill-height row v-for="(item, index) in companyData" :key="index" style="border-bottom: 1px solid #383838">
+                        <v-flex sm12>
+                            <!-- top header of card -->
+                            <div class="company grey lighten-2 py-3">
+                                <v-layout row>
+                                    <v-flex xs3>
+                                        <img class="text-xs-right" style="max-height:37px; max-width:37px" src="./../../../assets/images/outer-img/favicon-32x32.png" alt="" srcset="">
+                                    </v-flex>
+                                    <v-flex xs7 offset-xs1 class="mt-2">
+                                        <v-layout row>
+                                            <div class="body-2 font-weight-regular">{{item.companyName}} </div>
+                                            <v-spacer></v-spacer>
+                                            <v-icon>star</v-icon>
+                                        </v-layout>
+                                    </v-flex>
+                                </v-layout>
+                            </div>
+                            <!-- body of card -->
+                            <div class="company white pt-1">
+                                <v-container>
+                                    <v-layout row class="pb-2">
+                                        <div class="ml-2 grey--text text--darken-1">Market</div>
+                                        <v-spacer></v-spacer>
+                                        <div class="mr-3  grey--text text--darken-3">{{item.market}}</div>
+                                    </v-layout>
+                                    <v-layout row class="pb-2">
+                                        <div class="ml-2 grey--text text--darken-1">Location</div>
+                                        <v-spacer></v-spacer>
+                                        <div class="mr-3  grey--text text--darken-3">{{item.location}}</div>
+                                    </v-layout>
+                                    <v-layout row class="pb-2">
+                                        <div class="ml-2 grey--text text--darken-1">Type</div>
+                                        <v-spacer></v-spacer>
+                                        <div class="mr-3  grey--text text--darken-3">{{item.type}}</div>
+                                    </v-layout>
+                                    <v-layout row class="pb-2">
+                                        <div class="ml-2 grey--text text--darken-1">avgSalary</div>
+                                        <v-spacer></v-spacer>
+                                        <div class="mr-3  grey--text text--darken-3">{{item.avgSalary}}</div>
+                                    </v-layout>
+                                </v-container>
+                            </div>
+                        </v-flex>
+                    </v-layout>
+                </v-card>
 
                 <v-card flat class="py-1">
                     Load More
@@ -141,7 +190,7 @@ export default {
       },
       {
         logoImg: './../../../assets/images/outer-img/favicon-32x32.png',
-        companyName: 'BeeOcean',
+        companyName: 'Hamppys',
         location: 'jaipur, chennai',
         market: 'Gst',
         avgSalary: '45K-60k',
@@ -149,7 +198,7 @@ export default {
       },
       {
         logoImg: './../../../assets/images/outer-img/favicon-32x32.png',
-        companyName: 'BeeOcean',
+        companyName: 'Nansei',
         location: 'jaipur, chennai',
         market: 'Gst',
         avgSalary: '45K-60k',

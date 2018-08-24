@@ -5,16 +5,16 @@
         <v-toolbar-title class="blue--text ml-5 pt-3">
           <router-link color="primary--text" to="/" style="text-decoration:none" exact> <img src="./../../assets/images/outer-img/favicon-32x32.png" alt="" srcset=""> </router-link>
         </v-toolbar-title>
-        <v-toolbar-title class="black--tex ml-4 pt-3" style="height: 55px" :class="{'border-bott': isHome}">
+        <v-toolbar-title class="black--tex ml-4 pt-3" v-if="$vuetify.breakpoint.mdAndUp" style="height: 55px" :class="{'border-bott': isHome}">
           <router-link color="primary--text" to="/" class="caption pc_nav" style="text-decoration:none;" exact> HOME </router-link>
         </v-toolbar-title>
-        <v-toolbar-title class="black--tex ml-4 pt-3" style="height: 55px" :class="{'border-bott': isProfile}">
+        <v-toolbar-title class="black--tex ml-4 pt-3" v-if="$vuetify.breakpoint.mdAndUp" style="height: 55px" :class="{'border-bott': isProfile}">
           <router-link color="primary--text" to="/profile" class="caption pc_nav" style="text-decoration:none;" exact> PROFILE </router-link>
         </v-toolbar-title>
-        <v-toolbar-title class="black--text ml-4 pt-3" style="height: 55px" :class="{'border-bott': isJob}">
+        <v-toolbar-title class="black--text ml-4 pt-3" v-if="$vuetify.breakpoint.mdAndUp" style="height: 55px" :class="{'border-bott': isJob}">
           <router-link color="primary--text" to="/jobs" class="caption" style="text-decoration:none" exact> JOBS </router-link>
         </v-toolbar-title>
-        <v-toolbar-title class="black--text ml-4 pt-3" style="height: 55px" :class="{'border-bott': isCompany}">
+        <v-toolbar-title class="black--text ml-4 pt-3" v-if="$vuetify.breakpoint.mdAndUp" style="height: 55px" :class="{'border-bott': isCompany}">
           <router-link color="primary--text" to="/company" class="caption" style="text-decoration:none" exact> COMPANIES </router-link>
         </v-toolbar-title>
         <v-spacer></v-spacer>
