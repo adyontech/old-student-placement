@@ -97,10 +97,16 @@ export default {
     };
   },
   created() {
+    // console.log(this.$route.path);
     switch (this.$route.path) {
       case '/':
         this.isHome = true;
-        console.log(this.isHome);
+        break;
+      case '/company':
+        this.isCompany = true;
+        break;
+      case '/job':
+        this.isJob = true;
         break;
 
       default:

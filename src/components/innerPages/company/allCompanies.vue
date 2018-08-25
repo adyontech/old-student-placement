@@ -6,7 +6,7 @@
                 <v-layout align-center justify-center class="pt-2 mt-5 white">
                     <v-flex xs10 md8 class="white" align-content-start text-xs-left>
                         <v-layout row>
-                            <div class="body-1 ml-3 pt-3">Searching for {{listTypeModel}} companies</div>
+                            <div class="body-1 ml-3 pt-3">Searching for "{{listTypeModel}}"companies</div>
                             <v-spacer></v-spacer>
                             <v-menu offset-y class="ml-3 mb-2 mr-2">
                                 <v-btn slot="activator" color="primary" dark>
@@ -26,7 +26,7 @@
                     </v-flex>
 
                 </v-layout>
-                <v-layout align-center wrap row class="mt-3 pt-2 py-2 px-5 white">
+                <v-layout align-center wrap row class="mt-3 pt-2 py-2 px-5">
                     <v-flex xs6 sm5 md3 px-1 text-xs-left>
                         <div class="body-1 ml-3">Type</div>
                         <v-overflow-btn :items="dropdown_type" label="Editable Btn" editable item-value="text"></v-overflow-btn>
@@ -48,28 +48,28 @@
                     </v-flex>
                 </v-layout>
                 <v-card flat class="mdscreen mt-3 px-5" v-if="$vuetify.breakpoint.mdAndUp">
-                    <v-layout>
+                    <v-layout class="layout pt-4 pb-3 grey lighten-3">
                         <v-flex column>
                             <v-layout row>
-                                <v-flex md3>
-                                    <div class="title">Company </div>
+                                <v-flex md3 class=pl-1>
+                                    <div class="subheading">Company </div>
                                 </v-flex>
                                 <v-flex md3>
-                                    <div class="title">Location </div>
+                                    <div class="subheading">Location </div>
                                 </v-flex>
                                 <v-flex md2>
-                                    <div class="title">Market </div>
+                                    <div class="subheading">Market </div>
                                 </v-flex>
                                 <v-flex md2>
-                                    <div class="title">Type </div>
+                                    <div class="subheading">Type </div>
                                 </v-flex>
                                 <v-flex md2>
-                                    <div class="title">Avg Salary</div>
+                                    <div class="subheading">Avg Salary</div>
                                 </v-flex>
                             </v-layout>
                         </v-flex>
                     </v-layout>
-                    <v-layout class="mt-3">
+                    <v-layout class="pt-2" style="border: 1px solid #eeeeee">
                         <v-flex column>
                             <v-layout class="my-4" style="border-bottom: 1px solid #383838  " row v-for="(item, index) in companyData" :key="index">
                                 <v-flex class="d-flex" md3 text-xs-left>
