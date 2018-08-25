@@ -9,10 +9,13 @@
                             <v-flex xs10>
                                 <v-layout class="mx-3" align-start justify-start row wrap fill-height>
                                     <v-flex>
-                                        <v-chip outline label color="grey lighten-3" text-color="black">#Star </v-chip>
+                                        <v-chip outline label color="grey lighten-3" text-color="black">#
+                                            <span v-if="searchTypeCheckbox">All </span>
+                                            <span v-if="!searchTypeCheckbox">Stared</span>
+                                        </v-chip>
                                     </v-flex>
                                     <v-flex>
-                                        <v-chip outline label color="grey lighten-3" text-color="black">#Jaipur
+                                        <v-chip outline label color="grey lighten-3" text-color="black">#{{range[0]}}k-{{range[1]}}k
                                             <v-icon right>clear</v-icon>
                                         </v-chip>
                                     </v-flex>
@@ -42,63 +45,51 @@
                                 <v-btn outline>Search</v-btn>
                             </v-flex>
                         </v-layout>
-                        <div class=" grey lighten-3 pt-3">
-                            <v-layout>
-                                <v-flex xs12 row class="mb-0">
-                                    <v-text-field hide-details class="mx-3" flat label="Search" prepend-inner-icon="search" outline></v-text-field>
-                                </v-flex>
-                            </v-layout>
-                            <v-layout class="mx-3 mb-3 mt-0">
-                                <v-flex mt-3>
-                                    <v-checkbox class="mt-1" :label="`Stared`" v-model="checkbox"></v-checkbox>
-                                </v-flex>
-                                <v-flex> Type
-                                    <v-icon slot="activator" color="primary" class="mt-3 ml-2">
-                                        keyboard_arrow_down
-                                    </v-icon>
-                                </v-flex>
-                                <v-flex>Location
-                                    <v-icon slot="activator" color="primary" class="mt-3 ml-2">
-                                        keyboard_arrow_down
-                                    </v-icon>
-                                </v-flex>
-                                <v-flex>Market
-                                    <v-icon slot="activator" color="primary" class="mt-3 ml-2">
-                                        keyboard_arrow_down
-                                    </v-icon>
-                                </v-flex>
+                        <v-layout>
+                            <v-flex xs12 row class="mb-0">
+                                <v-text-field hide-details class="mx-3" flat label="Search" prepend-inner-icon="search" outline></v-text-field>
+                            </v-flex>
+                        </v-layout>
+                        <v-layout class="mx-3 pl-3 mb-3 mt-0  grey lighten-5">
+                            <v-flex mt-3>
+                                <v-checkbox class="mt-1" :label="`Stared`" v-model="searchTypeCheckbox"></v-checkbox>
+                            </v-flex>
+                            <v-flex> Type
+                                <v-icon slot="activator" color="primary" class="mt-3 ml-2">
+                                    keyboard_arrow_down
+                                </v-icon>
+                            </v-flex>
+                            <v-flex>Location
+                                <v-icon slot="activator" color="primary" class="mt-3 ml-2">
+                                    keyboard_arrow_down
+                                </v-icon>
+                            </v-flex>
+                            <v-flex>Market
+                                <v-icon slot="activator" color="primary" class="mt-3 ml-2">
+                                    keyboard_arrow_down
+                                </v-icon>
+                            </v-flex>
 
-                                <v-flex>Range
-                                    <v-icon slot="activator" color="primary" class="mt-3 ml-2">
+                            <v-flex class="mt-3">
+                                Range
+                                <v-menu offset-y :close-on-content-click="false">
+
+                                    <v-icon slot="activator" color="primary" class="ml-2">
                                         keyboard_arrow_down
                                     </v-icon>
-                                </v-flex>
-                            </v-layout>
-                        </div>
+                                    <v-list>
+                                        <v-subheader>{{range[0]}}k-{{range[1]}}k </v-subheader>
+                                        <v-list-tile>
+                                            <v-list-tile-title>
+                                                <v-range-slider v-model="range" :max="max" :min="min"></v-range-slider>
+                                            </v-list-tile-title>
+                                        </v-list-tile>
+                                    </v-list>
+                                </v-menu>
+                            </v-flex>
+                        </v-layout>
                     </v-flex>
-
                 </v-layout>
-                <!-- <v-layout align-center wrap row class="mt-3 pt-2 py-2 px-5">
-                    <v-flex xs6 sm5 md3 px-1 text-xs-left>
-                        <div class="body-1 ml-3">Type</div>
-                        <v-overflow-btn :items="dropdown_type" label="Editable Btn" editable item-value="text"></v-overflow-btn>
-                    </v-flex>
-                    <v-flex xs6 sm5 md3 px-1 text-xs-left>
-                        <div class="body-1 ml-3">Location</div>
-                        <v-overflow-btn :items="dropdown_edit" label="Editable Btn" editable item-value="text"></v-overflow-btn>
-                    </v-flex>
-                    <v-flex xs6 sm5 md3 px-1 text-xs-left>
-                        <div class="body-1 ml-3">Market</div>
-                        <v-overflow-btn :items="dropdown_edit" label="Editable Btn" editable item-value="text"></v-overflow-btn>
-                    </v-flex>
-                    <v-flex xs6 sm5 md3 text-xs-left px-5>
-                        <div class="body-1 ml-3">Range</div>
-                        <div class="body-1 ml-3">
-                            {{range[0] }}K- {{range[1]}}K
-                        </div>
-                        <v-range-slider class="pt-4" v-model="range" :max="max" :min="min"></v-range-slider>
-                    </v-flex>
-                </v-layout> -->
                 <v-card flat class="mdscreen mt-3 px-5" v-if="$vuetify.breakpoint.mdAndUp">
                     <v-layout class="layout pt-4 pb-3 grey lighten-3">
                         <v-flex column>
@@ -211,7 +202,8 @@
 <script>
 export default {
   data: () => ({
-    checkbox: true,
+    searchTypeCheckbox: true,
+
     companyData: [
       {
         logoImg: './../../../assets/images/outer-img/favicon-32x32.png',
@@ -285,12 +277,10 @@ export default {
       { text: 'Others' },
     ],
     listTypeModel: 'all',
-    slider: 45,
-    volume: 10,
-    price: [110, 440],
-    min: 5000000,
-    max: 9000000,
-    range: [500, 700],
+    min: 100,
+    max: 200,
+    slider: 40,
+    range: [100, 200],
   }),
   methods: {
     setFilterType: value => {
