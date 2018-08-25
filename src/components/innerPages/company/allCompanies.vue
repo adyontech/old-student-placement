@@ -5,28 +5,80 @@
 
                 <v-layout align-center justify-center class="pt-2 mt-5 white">
                     <v-flex xs10 md8 class="white" align-content-start text-xs-left>
-                        <v-layout row>
-                            <div class="body-1 ml-3 pt-3">Searching for "{{listTypeModel}}"companies</div>
-                            <v-spacer></v-spacer>
-                            <v-menu offset-y class="ml-3 mb-2 mr-2">
-                                <v-btn slot="activator" color="primary" dark>
-                                    List by
-                                </v-btn>
-                                <v-list>
-                                    <v-list-tile v-on:click="setFilterType('all')">
-                                        All
-                                    </v-list-tile>
-                                    <v-list-tile v-on:click="setFilterType('stared')">
-                                        Started
-                                    </v-list-tile>
-                                </v-list>
-                            </v-menu>
+                        <v-layout>
+                            <v-flex xs10>
+                                <v-layout class="mx-3" align-start justify-start row wrap fill-height>
+                                    <v-flex>
+                                        <v-chip outline label color="grey lighten-3" text-color="black">#Star </v-chip>
+                                    </v-flex>
+                                    <v-flex>
+                                        <v-chip outline label color="grey lighten-3" text-color="black">#Jaipur
+                                            <v-icon right>clear</v-icon>
+                                        </v-chip>
+                                    </v-flex>
+                                    <v-flex>
+                                        <v-chip outline label color="grey lighten-3" text-color="black">#Chenai
+                                            <v-icon right>clear</v-icon>
+                                        </v-chip>
+                                    </v-flex>
+                                    <v-flex>
+                                        <v-chip outline label color="grey lighten-3" text-color="black">#Start-up
+                                            <v-icon right>clear</v-icon>
+                                        </v-chip>
+                                    </v-flex>
+                                    <v-flex>
+                                        <v-chip outline label color="grey lighten-3" text-color="black">#78k-87k
+                                            <v-icon right>clear</v-icon>
+                                        </v-chip>
+                                    </v-flex>
+                                    <v-flex>
+                                        <v-chip outline label color="grey lighten-3" text-color="black">#Star
+                                            <v-icon right>clear</v-icon>
+                                        </v-chip>
+                                    </v-flex>
+                                </v-layout>
+                            </v-flex>
+                            <v-flex xs2 mt-0>
+                                <v-btn outline>Search</v-btn>
+                            </v-flex>
                         </v-layout>
-                        <v-text-field class="mx-3" flat label="Search" prepend-inner-icon="search" outline></v-text-field>
+                        <div class=" grey lighten-3 pt-3">
+                            <v-layout>
+                                <v-flex xs12 row class="mb-0">
+                                    <v-text-field hide-details class="mx-3" flat label="Search" prepend-inner-icon="search" outline></v-text-field>
+                                </v-flex>
+                            </v-layout>
+                            <v-layout class="mx-3 mb-3 mt-0">
+                                <v-flex mt-3>
+                                    <v-checkbox class="mt-1" :label="`Stared`" v-model="checkbox"></v-checkbox>
+                                </v-flex>
+                                <v-flex> Type
+                                    <v-icon slot="activator" color="primary" class="mt-3 ml-2">
+                                        keyboard_arrow_down
+                                    </v-icon>
+                                </v-flex>
+                                <v-flex>Location
+                                    <v-icon slot="activator" color="primary" class="mt-3 ml-2">
+                                        keyboard_arrow_down
+                                    </v-icon>
+                                </v-flex>
+                                <v-flex>Market
+                                    <v-icon slot="activator" color="primary" class="mt-3 ml-2">
+                                        keyboard_arrow_down
+                                    </v-icon>
+                                </v-flex>
+
+                                <v-flex>Range
+                                    <v-icon slot="activator" color="primary" class="mt-3 ml-2">
+                                        keyboard_arrow_down
+                                    </v-icon>
+                                </v-flex>
+                            </v-layout>
+                        </div>
                     </v-flex>
 
                 </v-layout>
-                <v-layout align-center wrap row class="mt-3 pt-2 py-2 px-5">
+                <!-- <v-layout align-center wrap row class="mt-3 pt-2 py-2 px-5">
                     <v-flex xs6 sm5 md3 px-1 text-xs-left>
                         <div class="body-1 ml-3">Type</div>
                         <v-overflow-btn :items="dropdown_type" label="Editable Btn" editable item-value="text"></v-overflow-btn>
@@ -46,7 +98,7 @@
                         </div>
                         <v-range-slider class="pt-4" v-model="range" :max="max" :min="min"></v-range-slider>
                     </v-flex>
-                </v-layout>
+                </v-layout> -->
                 <v-card flat class="mdscreen mt-3 px-5" v-if="$vuetify.breakpoint.mdAndUp">
                     <v-layout class="layout pt-4 pb-3 grey lighten-3">
                         <v-flex column>
@@ -159,6 +211,7 @@
 <script>
 export default {
   data: () => ({
+    checkbox: true,
     companyData: [
       {
         logoImg: './../../../assets/images/outer-img/favicon-32x32.png',
