@@ -1,7 +1,7 @@
-<template fillHeight >
+<template fillHeight>
     <div class="mt-3">
         <v-layout justify-center>
-            <v-flex xs11 md10 v-bind:class="{white: $vuetify.breakpoint.mdAndUp}">
+            <v-flex xs11 md10 v-bind:class="{white: $vuetify.breakpoint.mdAndUp}" class=" elevation-3">
 
                 <v-layout align-center justify-center class="pt-2 mt-5 white">
                     <v-flex xs10 md8 class="white" align-content-start text-xs-left>
@@ -10,14 +10,12 @@
                                 <v-layout class="mx-3" align-start justify-start row wrap fill-height>
                                     <v-flex>
                                         <v-chip outline label color="grey lighten-3" text-color="black">#
-                                            <span v-if="searchTypeCheckbox">All </span>
-                                            <span v-if="!searchTypeCheckbox">Stared</span>
+                                            <span v-if="!searchTypeCheckbox">All </span>
+                                            <span v-if="searchTypeCheckbox">Stared</span>
                                         </v-chip>
                                     </v-flex>
                                     <v-flex>
-                                        <v-chip outline label color="grey lighten-3" text-color="black">#{{range[0]}}k-{{range[1]}}k
-                                            <v-icon right>clear</v-icon>
-                                        </v-chip>
+                                        <v-chip outline label color="grey lighten-3" text-color="black">#{{range[0]}}k-{{range[1]}}k </v-chip>
                                     </v-flex>
                                     <v-flex>
                                         <v-chip outline label color="grey lighten-3" text-color="black">#Chenai
@@ -91,7 +89,7 @@
                     </v-flex>
                 </v-layout>
                 <v-card flat class="mdscreen mt-3 px-5" v-if="$vuetify.breakpoint.mdAndUp">
-                    <v-layout class="layout pt-4 pb-3 grey lighten-3">
+                    <v-layout class="layout pt-4 pb-3 grey lighten-3 elevation-3">
                         <v-flex column>
                             <v-layout row>
                                 <v-flex md3 class=pl-1>
