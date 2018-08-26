@@ -200,7 +200,7 @@
 <script>
 export default {
   data: () => ({
-    searchTypeCheckbox: true,
+    searchTypeCheckbox: false,
 
     companyData: [
       {
