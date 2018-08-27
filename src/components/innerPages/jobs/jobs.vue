@@ -89,17 +89,17 @@
                         </v-layout>
                     </v-flex>
                 </v-layout>
-                <v-layout v-for="i in 5" :key="i" align-center justify-center class="pt-2 mt-5 white">
-                    <v-flex @click="togglePanel(i-1)" xs10 md8 class="white" align-content-start text-xs-left>
+                <v-layout transition="scale-transition" v-for="i in 5" :key="i" align-center justify-center class="pt-2 mt-5 white">
+                    <v-flex xs10 md8 class="white" align-content-start text-xs-left>
                         <v-card>
-                            <v-layout class="px-4 pt-3 grey lighten-4">
+                            <v-layout @click="togglePanel(i-1)" class="px-4 pt-3 grey lighten-4">
                                 <v-flex xs1>
                                     <img src="./../../../assets/images/outer-img/favicon-32x32.png" alt="" srcset="">
                                 </v-flex>
                                 <v-flex xs10>
                                     <div class="title font-weight-medium">Company name</div>
                                     <div class="subheading font-weight-regular py-1">The dumb description</div>
-                                    <v-layout column class="px-4 pb-3" v-if="!panelStateArray[i]">
+                                    <v-layout column class="px-4 pb-3" v-if="!panelStateArray[i-1]">
 
                                         <v-layout row>
                                             <div class="font-weight-bold caption"> Job-1 </div>
@@ -118,7 +118,7 @@
                                         </v-layout>
 
                                     </v-layout>
-                                    <v-layout>
+                                    <v-layout v-if="!panelStateArray[i-1]">
                                         <v-layout row class="pb-4">
                                             <v-flex class="body-2 font-weight-thin">
                                                 <v-icon small>alarm</v-icon>
@@ -136,34 +136,36 @@
                                 </v-flex>
                             </v-layout>
                         </v-card>
-                        <v-card class="px-5 py-3" v-if="panelStateArray[i-1]">
-                            <v-layout class="px-4 pt-3 grey lighten-4">
-                                <div class="subheading">Jobs:</div>
-                                <v-layout column class="pl-3">
-                                    <div v-for="i in 5" :key="i">
-                                        <v-layout row>
-                                            <div class="subheading blue--text">Job-{{i}}
-                                            </div>
-                                            <v-spacer></v-spacer>
-                                            <div class="green--text">
-                                                Applicable
-                                            </div>
-                                        </v-layout>
-                                        <v-layout class="pl-2 py-1" row justify-start>
-                                            <v-flex class="body-2 font-weight-thin">
-                                                <v-icon small>alarm</v-icon>
-                                                Last date: 21 Aug
-                                            </v-flex>
-                                            <v-flex class="body-2 font-weight-thin">
-                                                <v-icon small> supervisor_account</v-icon> 21 Total Applicants
-                                            </v-flex>
-                                        </v-layout>
-                                        <div class="body-1 pl-3">456k-545k</div>
-                                        <div class="body-1 pl-3 py-1">The description</div>
-                                    </div>
+                        <v-slide-y-transition>
+                            <v-card class="px-5 py-3" v-if="panelStateArray[i-1]">
+                                <v-layout class="px-4 pt-3 grey lighten-4">
+                                    <div class="subheading">Jobs:</div>
+                                    <v-layout column class="pl-3">
+                                        <div v-for="i in 5" :key="i">
+                                            <v-layout row>
+                                                <div class="subheading blue--text">Job-{{i}}
+                                                </div>
+                                                <v-spacer></v-spacer>
+                                                <div class="green--text">
+                                                    Applicable
+                                                </div>
+                                            </v-layout>
+                                            <v-layout class="pl-2 py-1" row justify-start>
+                                                <v-flex class="body-2 font-weight-thin">
+                                                    <v-icon small>alarm</v-icon>
+                                                    Last date: 21 Aug
+                                                </v-flex>
+                                                <v-flex class="body-2 font-weight-thin">
+                                                    <v-icon small> supervisor_account</v-icon> 21 Total Applicants
+                                                </v-flex>
+                                            </v-layout>
+                                            <div class="body-1 pl-3">456k-545k</div>
+                                            <div class="body-1 pl-3 py-1">The description</div>
+                                        </div>
+                                    </v-layout>
                                 </v-layout>
-                            </v-layout>
-                        </v-card>
+                            </v-card>
+                        </v-slide-y-transition>
                     </v-flex>
                 </v-layout>
 
@@ -173,6 +175,7 @@
 </template>
 
 <script>
+import Vue from 'vue';
 export default {
   data() {
     return {
