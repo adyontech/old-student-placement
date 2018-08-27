@@ -6,7 +6,7 @@
 
 <style>
 #app {
-  font-family: Arial, Montserrat, 'Avenir', Helvetica, sans-serif;
+  font-family: Montserrat, 'Avenir', Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

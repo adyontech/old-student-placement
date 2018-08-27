@@ -17,24 +17,9 @@
                                     <v-flex>
                                         <v-chip outline label color="grey lighten-3" text-color="black">#{{range[0]}}k-{{range[1]}}k </v-chip>
                                     </v-flex>
-                                    <v-flex>
-                                        <v-chip outline label color="grey lighten-3" text-color="black">#Chenai
-                                            <v-icon right>clear</v-icon>
-                                        </v-chip>
-                                    </v-flex>
-                                    <v-flex>
-                                        <v-chip outline label color="grey lighten-3" text-color="black">#Start-up
-                                            <v-icon right>clear</v-icon>
-                                        </v-chip>
-                                    </v-flex>
-                                    <v-flex>
-                                        <v-chip outline label color="grey lighten-3" text-color="black">#78k-87k
-                                            <v-icon right>clear</v-icon>
-                                        </v-chip>
-                                    </v-flex>
-                                    <v-flex>
-                                        <v-chip outline label color="grey lighten-3" text-color="black">#Star
-                                            <v-icon right>clear</v-icon>
+                                    <v-flex v-for="(item, i) in filterBarList" :key="i">
+                                        <v-chip outline label color="grey lighten-3" text-color="black">#{{item}}
+                                            <v-icon small @click="removeFromTopBar(item)" right>clear</v-icon>
                                         </v-chip>
                                     </v-flex>
                                 </v-layout>
@@ -52,15 +37,31 @@
                             <v-flex mt-3>
                                 <v-checkbox class="mt-1" :label="`Stared`" v-model="searchTypeCheckbox"></v-checkbox>
                             </v-flex>
-                            <v-flex> Type
-                                <v-icon slot="activator" color="primary" class="mt-3 ml-2">
-                                    keyboard_arrow_down
-                                </v-icon>
+                            <v-flex class="mt-4"> Type
+                                <v-menu offset-y :close-on-content-click=false max-width="200">
+                                    <v-icon slot="activator" color="primary">
+                                        keyboard_arrow_down
+                                    </v-icon>
+                                    <v-list>
+                                        <!-- <v-overflow-btn loading icon :items="dropdown_edit" depressed flat @input="asd" label="Editable Btn" editable item-value="text"></v-overflow-btn> -->
+                                        <v-list-tile v-for="(item, index) in typeItems" :key="index" @click="addToTopBar(item.title)">
+                                            <v-list-tile-title> {{ item.title }}</v-list-tile-title>
+                                        </v-list-tile>
+                                    </v-list>
+                                </v-menu>
                             </v-flex>
-                            <v-flex>Location
-                                <v-icon slot="activator" color="primary" class="mt-3 ml-2">
-                                    keyboard_arrow_down
-                                </v-icon>
+                            <v-flex class="mt-4">Location
+                                <v-menu offset-y :close-on-content-click=false max-width="200">
+                                    <v-icon slot="activator" color="primary">
+                                        keyboard_arrow_down
+                                    </v-icon>
+                                    <v-list>
+                                        <v-overflow-btn loading icon :items="fullLocationItems" depressed flat @input="addToTopBar" label="Editable Btn" editable item-value="text"></v-overflow-btn>
+                                        <v-list-tile v-for="(item, index) in locationItems" :key="index" @click="addToTopBar(item.title)">
+                                            <v-list-tile-title> {{ item.title }}</v-list-tile-title>
+                                        </v-list-tile>
+                                    </v-list>
+                                </v-menu>
                             </v-flex>
                             <v-flex>Market
                                 <v-icon slot="activator" color="primary" class="mt-3 ml-2">
@@ -89,7 +90,7 @@
                     </v-flex>
                 </v-layout>
                 <v-layout v-for="i in 5" :key="i" align-center justify-center class="pt-2 mt-5 white">
-                    <v-flex v-on:click="showPanel[0] =!showPanel[0] " xs10 md8 class="white" align-content-start text-xs-left>
+                    <v-flex @click="togglePanel(i-1)" xs10 md8 class="white" align-content-start text-xs-left>
                         <v-card>
                             <v-layout class="px-4 pt-3 grey lighten-4">
                                 <v-flex xs1>
@@ -98,7 +99,7 @@
                                 <v-flex xs10>
                                     <div class="title font-weight-medium">Company name</div>
                                     <div class="subheading font-weight-regular py-1">The dumb description</div>
-                                    <v-layout column class="px-4 pb-3">
+                                    <v-layout column class="px-4 pb-3" v-if="!panelStateArray[i]">
 
                                         <v-layout row>
                                             <div class="font-weight-bold caption"> Job-1 </div>
@@ -135,7 +136,8 @@
                                 </v-flex>
                             </v-layout>
                         </v-card>
-                        <v-card class="px-5 py-3">
+                        {{panelStateArray[i]}}
+                        <v-card class="px-5 py-3" v-if="panelStateArray[i]">
                             <v-layout class="px-4 pt-3 grey lighten-4">
                                 <div class="subheading">Jobs:</div>
                                 <v-layout column class="pl-3">
@@ -175,8 +177,8 @@
 export default {
   data() {
     return {
-      showPanel: [false],
       searchTypeCheckbox: false,
+      panelStateArray: [false, false, false, false, false],
       dropdown_type: [
         { text: 'Start-up', callback: () => console.log('list') },
         { text: 'VC Firm', callback: () => console.log('list') },
@@ -194,6 +196,28 @@ export default {
         { text: 'Others' },
       ],
       listTypeModel: 'all',
+      typeItems: [
+        { title: 'Full time' },
+        { title: 'Internship' },
+        { title: 'Training program' },
+      ],
+      locationItems: [
+        { title: 'Chennai' },
+        { title: 'Jaipur' },
+        { title: 'Andhra' },
+      ],
+      fullLocationItems: [
+        { text: 'Chennai' },
+        { text: 'Jaipur' },
+        { text: 'Andhra' },
+        { text: 'Chesnnai' },
+        { text: 'Jaiapur' },
+        { text: 'Andhara' },
+        { text: 'Cshennai' },
+        { text: 'Jsaipur' },
+        { text: 'Asndhra' },
+      ],
+      filterBarList: [],
       min: 100,
       max: 200,
       slider: 40,
@@ -201,8 +225,24 @@ export default {
     };
   },
   methods: {
-    togglePanel(value) {
-      this.showPanel[value] = !this.showPanel[value];
+    togglePanel(i) {
+      console.log(this.panelStateArray[i]);
+
+      this.panelStateArray[i] = !this.panelStateArray[i];
+      console.log(this.panelStateArray[i]);
+    },
+    addToTopBar(val) {
+      console.log(val);
+      this.filterBarList.push(val);
+      this.filterBarList = [...new Set(this.filterBarList)];
+    },
+    removeFromTopBar(val) {
+      console.log(val);
+      this.filterBarList.map(el => {
+        if (el === val) {
+          this.filterBarList.splice(val);
+        }
+      });
     },
   },
 };
