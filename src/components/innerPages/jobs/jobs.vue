@@ -1,9 +1,9 @@
 <template fill-height>
     <div class="mt-3">
         <v-layout justify-center>
-            <v-flex xs11 md10 v-bind:class="{white: $vuetify.breakpoint.mdAndUp}" class=" elevation-3">
+            <v-flex xs11 md10 v-bind:class="{white: $vuetify.breakpoint.mdAndUp}" class="pb-5 elevation-3">
 
-                <v-layout align-center justify-center class="pt-2 mt-5 white">
+                <v-layout align-center justify-center class="pt-2  mt-5 white">
                     <v-flex xs10 md8 class="white" align-content-start text-xs-left>
                         <v-layout>
                             <v-flex xs10>
@@ -88,10 +88,80 @@
                         </v-layout>
                     </v-flex>
                 </v-layout>
-                <v-layout align-center justify-center class="pt-2 mt-5 white">
-                    <v-flex xs10 md8 class="white" align-content-start text-xs-left>
-                        <v-card flat v-if="$vuetify.breakpoint.mdAndUp">
+                <v-layout v-for="i in 5" :key="i" align-center justify-center class="pt-2 mt-5 white">
+                    <v-flex v-on:click="showPanel[0] =!showPanel[0] " xs10 md8 class="white" align-content-start text-xs-left>
+                        <v-card>
+                            <v-layout class="px-4 pt-3 grey lighten-4">
+                                <v-flex xs1>
+                                    <img src="./../../../assets/images/outer-img/favicon-32x32.png" alt="" srcset="">
+                                </v-flex>
+                                <v-flex xs10>
+                                    <div class="title font-weight-medium">Company name</div>
+                                    <div class="subheading font-weight-regular py-1">The dumb description</div>
+                                    <v-layout column class="px-4 pb-3">
 
+                                        <v-layout row>
+                                            <div class="font-weight-bold caption"> Job-1 </div>
+                                            <v-spacer></v-spacer>
+                                            <div class="font-weight-regular caption"> 425k-654k </div>
+                                        </v-layout>
+                                        <v-layout row>
+                                            <div class="font-weight-bold caption"> Job-2 </div>
+                                            <v-spacer></v-spacer>
+                                            <div class="font-weight-regular caption"> 425k-654k </div>
+                                        </v-layout>
+                                        <v-layout row>
+                                            <div class="font-weight-bold caption"> Job-3 </div>
+                                            <v-spacer></v-spacer>
+                                            <div class="font-weight-regular caption"> 425k-654k </div>
+                                        </v-layout>
+
+                                    </v-layout>
+                                    <v-layout>
+                                        <v-layout row class="pb-4">
+                                            <v-flex class="body-2 font-weight-thin">
+                                                <v-icon small>alarm</v-icon>
+                                                Last date: 21 Aug
+                                            </v-flex>
+                                            <v-flex class="body-2 font-weight-thin">
+                                                <v-icon small> supervisor_account</v-icon> 21 Total Applicants
+                                            </v-flex>
+                                            <v-flex class="body-2 font-weight-thin">
+                                                <v-icon small> work</v-icon>
+                                                Total jobs: 5
+                                            </v-flex>
+                                        </v-layout>
+                                    </v-layout>
+                                </v-flex>
+                            </v-layout>
+                        </v-card>
+                        <v-card class="px-5 py-3">
+                            <v-layout class="px-4 pt-3 grey lighten-4">
+                                <div class="subheading">Jobs:</div>
+                                <v-layout column class="pl-3">
+                                    <div v-for="i in 5" :key="i">
+                                        <v-layout row>
+                                            <div class="subheading blue--text">Job-{{i}}
+                                            </div>
+                                            <v-spacer></v-spacer>
+                                            <div class="green--text">
+                                                Applicable
+                                            </div>
+                                        </v-layout>
+                                        <v-layout class="pl-2 py-1" row justify-start>
+                                            <v-flex class="body-2 font-weight-thin">
+                                                <v-icon small>alarm</v-icon>
+                                                Last date: 21 Aug
+                                            </v-flex>
+                                            <v-flex class="body-2 font-weight-thin">
+                                                <v-icon small> supervisor_account</v-icon> 21 Total Applicants
+                                            </v-flex>
+                                        </v-layout>
+                                        <div class="body-1 pl-3">456k-545k</div>
+                                        <div class="body-1 pl-3 py-1">The description</div>
+                                    </div>
+                                </v-layout>
+                            </v-layout>
                         </v-card>
                     </v-flex>
                 </v-layout>
@@ -103,33 +173,36 @@
 
 <script>
 export default {
-  data: () => ({
-    searchTypeCheckbox: false,
-    dropdown_type: [
-      { text: 'Start-up', callback: () => console.log('list') },
-      { text: 'VC Firm', callback: () => console.log('list') },
-      { text: 'Incubators', callback: () => console.log('list') },
-      { text: 'Private company' },
-      { text: 'SaaS' },
-      { text: 'Others' },
-    ],
-    dropdown_edit: [
-      { text: 'Start-up', callback: () => console.log('list') },
-      { text: 'VC Firm', callback: () => console.log('list') },
-      { text: 'Incubators', callback: () => console.log('list') },
-      { text: 'Private company' },
-      { text: 'SaaS' },
-      { text: 'Others' },
-    ],
-    listTypeModel: 'all',
-    min: 100,
-    max: 200,
-    slider: 40,
-    range: [100, 200],
-  }),
+  data() {
+    return {
+      showPanel: [false],
+      searchTypeCheckbox: false,
+      dropdown_type: [
+        { text: 'Start-up', callback: () => console.log('list') },
+        { text: 'VC Firm', callback: () => console.log('list') },
+        { text: 'Incubators', callback: () => console.log('list') },
+        { text: 'Private company' },
+        { text: 'SaaS' },
+        { text: 'Others' },
+      ],
+      dropdown_edit: [
+        { text: 'Start-up', callback: () => console.log('list') },
+        { text: 'VC Firm', callback: () => console.log('list') },
+        { text: 'Incubators', callback: () => console.log('list') },
+        { text: 'Private company' },
+        { text: 'SaaS' },
+        { text: 'Others' },
+      ],
+      listTypeModel: 'all',
+      min: 100,
+      max: 200,
+      slider: 40,
+      range: [100, 200],
+    };
+  },
   methods: {
-    setFilterType: value => {
-      this.listTypeModel = value;
+    togglePanel(value) {
+      this.showPanel[value] = !this.showPanel[value];
     },
   },
 };
