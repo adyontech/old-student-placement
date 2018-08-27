@@ -136,8 +136,7 @@
                                 </v-flex>
                             </v-layout>
                         </v-card>
-                        {{panelStateArray[i]}}
-                        <v-card class="px-5 py-3" v-if="panelStateArray[i]">
+                        <v-card class="px-5 py-3" v-if="panelStateArray[i-1]">
                             <v-layout class="px-4 pt-3 grey lighten-4">
                                 <div class="subheading">Jobs:</div>
                                 <v-layout column class="pl-3">
@@ -225,11 +224,12 @@ export default {
     };
   },
   methods: {
-    togglePanel(i) {
-      console.log(this.panelStateArray[i]);
-
-      this.panelStateArray[i] = !this.panelStateArray[i];
-      console.log(this.panelStateArray[i]);
+    togglePanel(value) {
+      var self = this;
+      console.log(this.panelStateArray[value]);
+      let crr = this.panelStateArray[value];
+      Vue.set(self.panelStateArray, value, !crr);
+      console.log(this.panelStateArray[value]);
     },
     addToTopBar(val) {
       console.log(val);
