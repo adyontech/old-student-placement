@@ -35,7 +35,7 @@
                         </v-card>
 
                         <v-card flat class="mt-2">
-                            <v-layout row>
+                            <v-layout row class=" elevation-2">
                                 <v-icon round class="grey lighten-3">edit</v-icon>
                                 <v-subheader>Contact</v-subheader>
                             </v-layout>
@@ -60,8 +60,8 @@
                         </v-card>
 
                         <v-card flat class="mt-2">
-                            <v-layout row>
-                                <v-subheader>Address</v-subheader>
+                            <v-layout row class=" elevation-2">
+                                <v-subheader class="ml-4">Address</v-subheader>
                             </v-layout>
                             <v-divider></v-divider>
                             <div class="px-5 py-1">
@@ -73,9 +73,31 @@
                                     <div class="subheading ml-5">Blah blah blasasdjkjaksdjklsjdklajskdljaksldjkl</div>
                                 </v-layout>
                                 <v-layout row wrap class="mt-1">
-                                    <div class="subheading grey--text text--darken-1">Email</div>
+                                    <v-icon round class="pr-3" small>edit</v-icon>
+
+                                    <div class="subheading grey--text text--darken-1">Additional address</div>
                                     <v-spacer></v-spacer>
-                                    <div class="subheading ml-5">Email@Email.com</div>
+                                    <div class="subheading ml-5">Blah blah blasasdjkjaksdjklsjdklajskdljaksldjkl</div>
+                                </v-layout>
+                            </div>
+                        </v-card>
+
+                        <v-card flat class="mt-2">
+                            <v-layout row class=" elevation-2">
+                                <v-icon round class="grey lighten-3">edit</v-icon>
+                                <v-subheader>Additonal Information</v-subheader>
+                            </v-layout>
+                            <v-divider></v-divider>
+                            <div class="px-5 py-1">
+                                <v-layout row wrap class="mt-1">
+                                    <div class="subheading grey--text text--darken-1">Nationality</div>
+                                    <v-spacer></v-spacer>
+                                    <div class="subheading ml-5">India</div>
+                                </v-layout>
+                                <v-layout row wrap class="mt-1">
+                                    <div class="subheading grey--text text--darken-1">Passport Number</div>
+                                    <v-spacer></v-spacer>
+                                    <div class="subheading ml-5">asd88879asd897ssa</div>
                                 </v-layout>
                                 <v-layout row wrap class="mt-1">
                                     <div class="subheading grey--text text--darken-1">Category</div>
