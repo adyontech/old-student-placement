@@ -1,4 +1,4 @@
-<template fill-height>
+<template>
     <div class="mt-3">
         <v-layout justify-center>
             <v-flex xs11 md10 v-bind:class="{white: $vuetify.breakpoint.mdAndUp}" class="pb-5 elevation-3">

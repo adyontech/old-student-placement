@@ -102,8 +102,8 @@ export default {
       case '/':
         this.isHome = true;
         break;
-      case '/company':
-        this.isCompany = true;
+      case '/profile':
+        this.isProfile = true;
         break;
       case '/jobs':
         this.isJob = true;

@@ -5,7 +5,7 @@ const Dashboard = () =>
 const Jobs = () =>
     import ('./jobs/jobs.vue')
 const JobsInfo = () =>
-    import ('./jobs/jobsInfo.vue')
+    import ('./jobs/jobInfo.vue')
 const Profile = () =>
     import ('./profile/profile.vue')
 export default [{
@@ -23,11 +23,13 @@ export default [{
         path: 'jobs',
         name: 'Jobs',
         component: Jobs
-    }, {
+    },
+    {
         path: 'jobs/:jobId',
         name: 'JobsInfo',
         component: JobsInfo
-    }, {
+    },
+    {
         path: 'profile',
         name: 'Profile',
         component: Profile
