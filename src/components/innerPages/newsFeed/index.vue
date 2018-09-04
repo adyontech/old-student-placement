@@ -1,7 +1,10 @@
 <template>
     <div class="mt-3">
         <v-layout justify-center>
-            <v-flex xs11 md10 v-bind:class="{white: $vuetify.breakpoint.mdAndUp}" class="pb-5 elevation-3">
+            <v-flex xs11 md2 v-bind:class="{white: $vuetify.breakpoint.mdAndUp}" class="pb-5 elevation-3">
+
+            </v-flex>
+            <v-flex xs11 md8 v-bind:class="{white: $vuetify.breakpoint.mdAndUp}" class="pb-5 elevation-3 ml-4">
 
                 <v-layout align-center justify-center class="pt-2  mt-5 white">
                     <v-flex xs10 md8 class="white" align-content-start text-xs-left>
@@ -175,55 +178,55 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import Vue from "vue";
 export default {
   data() {
     return {
       searchTypeCheckbox: false,
       panelStateArray: [false, false, false, false, false],
       dropdown_type: [
-        { text: 'Start-up', callback: () => console.log('list') },
-        { text: 'VC Firm', callback: () => console.log('list') },
-        { text: 'Incubators', callback: () => console.log('list') },
-        { text: 'Private company' },
-        { text: 'SaaS' },
-        { text: 'Others' },
+        { text: "Start-up", callback: () => console.log("list") },
+        { text: "VC Firm", callback: () => console.log("list") },
+        { text: "Incubators", callback: () => console.log("list") },
+        { text: "Private company" },
+        { text: "SaaS" },
+        { text: "Others" }
       ],
       dropdown_edit: [
-        { text: 'Start-up', callback: () => console.log('list') },
-        { text: 'VC Firm', callback: () => console.log('list') },
-        { text: 'Incubators', callback: () => console.log('list') },
-        { text: 'Private company' },
-        { text: 'SaaS' },
-        { text: 'Others' },
+        { text: "Start-up", callback: () => console.log("list") },
+        { text: "VC Firm", callback: () => console.log("list") },
+        { text: "Incubators", callback: () => console.log("list") },
+        { text: "Private company" },
+        { text: "SaaS" },
+        { text: "Others" }
       ],
-      listTypeModel: 'all',
+      listTypeModel: "all",
       typeItems: [
-        { title: 'Full time' },
-        { title: 'Internship' },
-        { title: 'Training program' },
+        { title: "Full time" },
+        { title: "Internship" },
+        { title: "Training program" }
       ],
       locationItems: [
-        { title: 'Chennai' },
-        { title: 'Jaipur' },
-        { title: 'Andhra' },
+        { title: "Chennai" },
+        { title: "Jaipur" },
+        { title: "Andhra" }
       ],
       fullLocationItems: [
-        { text: 'Chennai' },
-        { text: 'Jaipur' },
-        { text: 'Andhra' },
-        { text: 'Chesnnai' },
-        { text: 'Jaiapur' },
-        { text: 'Andhara' },
-        { text: 'Cshennai' },
-        { text: 'Jsaipur' },
-        { text: 'Asndhra' },
+        { text: "Chennai" },
+        { text: "Jaipur" },
+        { text: "Andhra" },
+        { text: "Chesnnai" },
+        { text: "Jaiapur" },
+        { text: "Andhara" },
+        { text: "Cshennai" },
+        { text: "Jsaipur" },
+        { text: "Asndhra" }
       ],
       filterBarList: [],
       min: 100,
       max: 200,
       slider: 40,
-      range: [100, 200],
+      range: [100, 200]
     };
   },
   methods: {
@@ -246,7 +249,7 @@ export default {
           this.filterBarList.splice(val);
         }
       });
-    },
-  },
+    }
+  }
 };
 </script>
