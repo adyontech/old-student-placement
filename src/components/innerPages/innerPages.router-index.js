@@ -1,5 +1,7 @@
 const AllCompanies = () =>
     import ('./company/allCompanies.vue')
+const CompanyProfile = () =>
+    import ('./company/companyProfile.vue')
 const Jobs = () =>
     import ('./jobs/jobs.vue')
 const JobsInfo = () =>
@@ -18,6 +20,11 @@ export default [{
         path: 'company',
         name: 'AllCompanies',
         component: AllCompanies
+    },
+    {
+        path: 'company/:compmanyId',
+        name: 'CompanyProfile',
+        component: CompanyProfile
     },
     {
         path: 'jobs',
