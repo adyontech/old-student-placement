@@ -1,5 +1,5 @@
 <template>
-    <div class="my-3">
+    <div class="mt-3 mb-5">
 
         <v-card flat class="pa-3">
             <v-layout align-center justify-space-between>

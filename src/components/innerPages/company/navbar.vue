@@ -22,7 +22,6 @@
 
             <v-spacer></v-spacer>
             <v-toolbar-items class="mr-2">
-                <v-btn flat>Home</v-btn>
                 <v-btn flat>About</v-btn>
                 <v-btn flat>Jobs</v-btn>
                 <v-btn flat>Culture</v-btn>

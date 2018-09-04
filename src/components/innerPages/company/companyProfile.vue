@@ -1,16 +1,17 @@
 <template fill-height>
     <div class="mt-3">
         <v-layout justify-center row>
-            <v-flex xs11 md10 v-bind:class="{white: $vuetify.breakpoint.mdAndUp}" class=" elevation-3">
+            <v-flex xs11 fill-height md10 v-bind:class="{white: $vuetify.breakpoint.mdAndUp}" class=" elevation-3">
                 <!-- Navbar component here -->
                 <Navbar/>
                 <v-layout row align-center justify-center fill-height>
                     <v-flex xs10>
 
                         <About/>
-                        <v-divider></v-divider>
+                        <v-divider class="my-4"></v-divider>
                         <MoreInfo/>
-
+                        <v-divider class="my-4"></v-divider>
+                        <Jobs/>
                     </v-flex>
                 </v-layout>
             </v-flex>
@@ -21,11 +22,13 @@
 import Navbar from "./navbar";
 import About from "./about";
 import MoreInfo from "./moreInfo";
+import Jobs from "./jobs";
 export default {
   components: {
     About,
     Navbar,
-    MoreInfo
+    MoreInfo,
+    Jobs
   }
 };
 </script>
