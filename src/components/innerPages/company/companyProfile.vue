@@ -12,6 +12,8 @@
                         <MoreInfo/>
                         <v-divider class="my-4"></v-divider>
                         <Jobs/>
+                        <v-divider class="my-4"></v-divider>
+                        <Info/>
                     </v-flex>
                 </v-layout>
             </v-flex>
@@ -23,12 +25,14 @@ import Navbar from "./navbar";
 import About from "./about";
 import MoreInfo from "./moreInfo";
 import Jobs from "./jobs";
+import Info from "./info";
 export default {
   components: {
     About,
     Navbar,
     MoreInfo,
-    Jobs
+    Jobs,
+    Info
   }
 };
 </script>

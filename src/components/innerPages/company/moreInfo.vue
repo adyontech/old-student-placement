@@ -13,7 +13,7 @@
                     <div class="text-xs-right">
                         <v-icon small class="pa-0">location_on</v-icon>
                     </div>
-                    <div class="font-weight-regular body-2">
+                    <div class="ml-2 font-weight-regular body-2">
                         Hiring in Bengaluru
                     </div>
                 </v-layout>
@@ -21,7 +21,7 @@
                     <div class="text-xs-right">
                         <v-icon small class="pa-0">supervised_user_circle</v-icon>
                     </div>
-                    <div class="font-weight-regular body-2">
+                    <div class="ml-2 font-weight-regular body-2">
                         3200 Employees
                     </div>
                 </v-layout>
@@ -29,7 +29,7 @@
                     <div class="text-xs-right">
                         <v-icon small class="pa-0">bookmark</v-icon>
                     </div>
-                    <div class="font-weight-regular body-2">
+                    <div class="ml-2 font-weight-regular body-2">
                         Enterprise Software, Cloud Computing, Developer Tools, Blockchains
                     </div>
                 </v-layout>
@@ -37,7 +37,7 @@
                     <div class="text-xs-right">
                         <v-icon small class="pa-0">info</v-icon>
                     </div>
-                    <div class="font-weight-regular body-2">
+                    <div class="ml-2 font-weight-regular body-2">
                         TCS.com
                     </div>
                 </v-layout>

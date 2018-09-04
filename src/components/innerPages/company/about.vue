@@ -17,7 +17,7 @@
             </v-layout>
         </v-card>
         <v-card flat class="text-xs-center">
-            <div class="display-1 font-weight-bold"> About us</div>
+            <div class="display-1 font-weight-regular"> About us</div>
             <div class="my-3 subheading font-weight-medium grey--text text--darken-5">What is TCS?</div>
         </v-card>
         <v-layout row align-center justify-center fill-height>
