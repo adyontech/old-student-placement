@@ -1,5 +1,3 @@
-const Dashboard = () =>
-    import ('./dashboard/dashboard.vue')
 // const AllCompanies = () =>
 //     import ('./company/allCompanies.vue')
 const Jobs = () =>
@@ -8,10 +6,12 @@ const JobsInfo = () =>
     import ('./jobs/jobInfo.vue')
 const Profile = () =>
     import ('./profile/profile.vue')
+const NewsFeed = () =>
+    import ('./newsFeed/index.vue')
 export default [{
-        path: 'home',
-        name: 'Dashboard',
-        component: Dashboard
+        path: 'feed',
+        name: 'NewsFeed',
+        component: NewsFeed
     },
     // NOTE: hold on for company page now.
     // {
