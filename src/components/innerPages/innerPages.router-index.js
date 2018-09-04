@@ -1,5 +1,5 @@
-// const AllCompanies = () =>
-//     import ('./company/allCompanies.vue')
+const AllCompanies = () =>
+    import ('./company/allCompanies.vue')
 const Jobs = () =>
     import ('./jobs/jobs.vue')
 const JobsInfo = () =>
@@ -14,11 +14,11 @@ export default [{
         component: NewsFeed
     },
     // NOTE: hold on for company page now.
-    // {
-    //   path: 'company',
-    //   name: 'AllCompanies',
-    //   component: AllCompanies
-    // },
+    {
+        path: 'company',
+        name: 'AllCompanies',
+        component: AllCompanies
+    },
     {
         path: 'jobs',
         name: 'Jobs',

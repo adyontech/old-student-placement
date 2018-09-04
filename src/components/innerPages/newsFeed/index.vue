@@ -8,7 +8,7 @@
 
                 <v-layout align-center justify-center class="pt-2  mt-5 white">
                     <v-flex xs10 md8 class="white" align-content-start text-xs-left>
-                        <v-layout>
+                        <!-- <v-layout>
                             <v-flex xs10>
                                 <v-layout class="mx-3" align-start justify-start row wrap fill-height>
                                     <v-flex>
@@ -46,7 +46,7 @@
                                         keyboard_arrow_down
                                     </v-icon>
                                     <v-list>
-                                        <!-- <v-overflow-btn loading icon :items="dropdown_edit" depressed flat @input="asd" label="Editable Btn" editable item-value="text"></v-overflow-btn> -->
+                                        
                                         <v-list-tile v-for="(item, index) in typeItems" :key="index" @click="addToTopBar(item.title)">
                                             <v-list-tile-title> {{ item.title }}</v-list-tile-title>
                                         </v-list-tile>
@@ -89,12 +89,12 @@
                                     </v-list>
                                 </v-menu>
                             </v-flex>
-                        </v-layout>
+                        </v-layout> -->
                     </v-flex>
                 </v-layout>
                 <v-layout transition="scale-transition" v-for="i in 5" :key="i" align-center justify-center class="pt-2 mt-5 white">
                     <v-flex xs10 md8 class="white" align-content-start text-xs-left>
-                        <v-card>
+                        <!-- <v-card>
                             <v-layout @click="togglePanel(i-1)" class="px-4 pt-3 grey lighten-4">
                                 <v-flex xs1>
                                     <img src="./../../../assets/images/outer-img/favicon-32x32.png" alt="" srcset="">
@@ -168,7 +168,7 @@
                                     </v-layout>
                                 </v-layout>
                             </v-card>
-                        </v-slide-y-transition>
+                        </v-slide-y-transition> -->
                     </v-flex>
                 </v-layout>
 
