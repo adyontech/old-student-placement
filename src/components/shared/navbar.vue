@@ -7,7 +7,7 @@
         <router-link color="primary--text" to="/" style="text-decoration:none" exact> <img src="./../../assets/images/outer-img/favicon-32x32.png" alt="" srcset=""> </router-link>
       </v-toolbar-title>
       <v-toolbar-title class="black--tex ml-4 pt-3" v-if="$vuetify.breakpoint.mdAndUp" style="height: 55px" :class="{'border-bott': isHome}">
-        <router-link color="primary--text" to="/feed" class="caption pc_nav" style="text-decoration:none;" exact> HOME </router-link>
+        <router-link color="primary--text" to="/home" class="caption pc_nav" style="text-decoration:none;" exact> HOME </router-link>
       </v-toolbar-title>
       <v-toolbar-title class="black--tex ml-4 pt-3" v-if="$vuetify.breakpoint.mdAndUp" style="height: 55px" :class="{'border-bott': isProfile}">
         <router-link color="primary--text" to="/profile" class="caption pc_nav" style="text-decoration:none;" exact> PROFILE </router-link>
@@ -17,6 +17,9 @@
       </v-toolbar-title>
       <v-toolbar-title class="black--text ml-4 pt-3" v-if="$vuetify.breakpoint.mdAndUp" style="height: 55px" :class="{'border-bott': isCompany}">
         <router-link color="primary--text" to="/company" class="caption" style="text-decoration:none" exact> COMPANIES </router-link>
+      </v-toolbar-title>
+      <v-toolbar-title class="black--text ml-4 pt-3" v-if="$vuetify.breakpoint.mdAndUp" style="height: 55px" :class="{'border-bott': isCompany}">
+        <router-link color="primary--text" to="/applied" class="caption" style="text-decoration:none" exact> APPLIED </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="mr-5">
@@ -93,37 +96,37 @@ export default {
       showLogInBtn: true,
       showSignUpBtn: true,
 
-      items: [{ title: "Help" }, { title: "Log Out" }]
+      items: [{ title: 'Help' }, { title: 'Log Out' }],
     };
   },
   created() {
     console.log(this.$route.path);
     switch (this.$route.path) {
-      case "/":
+      case '/':
         this.isHome = true;
         break;
-      case "/profile":
+      case '/profile':
         this.isProfile = true;
         break;
-      case "/jobs":
+      case '/jobs':
         this.isJob = true;
         break;
 
       default:
         break;
     }
-    if (this.$route.path === "/auth/login") {
+    if (this.$route.path === '/auth/login') {
       this.showLogInBtn = false;
     }
-    if (this.$route.path === "/auth/signup") {
+    if (this.$route.path === '/auth/signup') {
       this.showSignUpBtn = false;
     }
   },
   methods: {
     toggleDrawer() {
       this.drawerState = !this.drawerState;
-      this.$emit("toggleDrawerValue", this.drawerState);
-    }
-  }
+      this.$emit('toggleDrawerValue', this.drawerState);
+    },
+  },
 };
 </script>
