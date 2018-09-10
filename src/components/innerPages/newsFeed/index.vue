@@ -5,8 +5,8 @@
 
                 <profileCard/>
             </v-flex>
-            <v-flex xs11 md6 v-bind:class="{}" class="">
-                <v-layout transition="scale-transition" v-for="i in 1" :key="i" align-center justify-center>
+            <v-flex xs11 md6>
+                <v-layout transition="scale-transition" align-center justify-center>
                     <v-flex xs10 md12 align-content-start text-xs-left>
                         <newsFeed/>
                     </v-flex>
