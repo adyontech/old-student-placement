@@ -18,57 +18,52 @@
 
                     </v-flex>
                 </v-layout>
-                <!-- <v-layout transition="scale-transition" v-for="i in 5" :key="i" align-center justify-center class="pt-2 mt-5 white">
-                            <v-flex xs10 md4 class="white" align-content-start text-xs-left>
-                                <v-card>
-
-                                </v-card>
-                            </v-flex>
-                        </v-layout> -->
                 <v-card flat class="mdscreen mt-3 px-5" v-if="$vuetify.breakpoint.mdAndUp">
                     <v-layout class="layout pt-4 pb-3 grey lighten-3 elevation-3">
                         <v-flex column>
                             <v-layout row>
                                 <v-flex md3 class=pl-1>
-                                    <div class="subheading">Company </div>
+                                    <div class="subheading">Job </div>
                                 </v-flex>
                                 <v-flex md3>
                                     <div class="subheading">Date </div>
                                 </v-flex>
                                 <v-flex md2>
-                                    <div class="subheading">Job </div>
+                                    <div class="subheading">Company </div>
                                 </v-flex>
                                 <v-flex md2>
                                     <div class="subheading">Status </div>
                                 </v-flex>
-                                <v-flex md2>
+                                <!-- <v-flex md2>
                                     <div class="subheading">Avg Salary</div>
-                                </v-flex>
+                                </v-flex> -->
                             </v-layout>
                         </v-flex>
                     </v-layout>
                     <v-layout class="pt-2" style="border: 1px solid #eeeeee">
                         <v-flex column>
                             <v-layout class="my-4" style="border-bottom: 1px solid #383838  " row v-for="(item, index) in companyData" :key="index">
-                                <v-flex class="d-flex" md3 text-xs-left>
+                                <v-flex class="d-flex" md3 offset-md1 text-xs-left>
                                     <div class="ml-3">
                                         <img class="text-xs-right" style="height:25px; width:25px" src="./../../../../assets/images/outer-img/favicon-32x32.png" alt="" srcset="">
                                     </div>
-                                    <div class="body-1 text-xs-left">{{item.companyName}} </div>
+                                    <router-link class="mx-3 body-2 blue--text" style="text-decoration: none; " to="jobs/124">
+                                        <div class="body-1">{{item.job}}</div>
+                                    </router-link>
                                 </v-flex>
                                 <v-flex md3>
                                     <div class="body-1">{{item.location}} </div>
                                 </v-flex>
                                 <v-flex md2>
-                                    <div class="body-1">{{item.market}}</div>
+                                    <div class="body-1 text-xs-left">{{item.companyName}} </div>
                                 </v-flex>
                                 <v-flex md2>
-                                    <div class="body-1">{{item.type}}</div>
+                                    <div class="body-1" v-bind:class="{green: item.status=='Selected', yellow: item.status=='On going', red: item.status=='Not selected', }">{{item.status}}</div>
                                 </v-flex>
-                                <v-flex class="d-flex" md2>
+                                <!-- <v-flex class="d-flex" md2>
                                     <div class="body-1 text-xs-right">{{item.avgSalary}}</div>
                                     <v-icon class="pb-3">star</v-icon>
-                                </v-flex>
+                                </v-flex> -->
                             </v-layout>
                         </v-flex>
                     </v-layout>
@@ -89,55 +84,43 @@ export default {
         logoImg: './../../../../assets/images/outer-img/favicon-32x32.png',
         companyName: 'BeeOcean',
         location: 'jaipur, chennai',
-        market: 'Gst',
-        avgSalary: '45K-60k',
-        type: 'Start-up',
-        star: false,
+        job: 'SDE',
+        status: 'Selected',
       },
       {
         logoImg: './../../../../assets/images/outer-img/favicon-32x32.png',
         companyName: 'Skylim',
         location: 'jaipur, chennai',
-        market: 'saas',
-        avgSalary: '90K-120k',
-        type: 'GLobalcompany',
-        star: true,
+        job: 'CEO',
+        status: 'On going',
       },
       {
         logoImg: './../../../../assets/images/outer-img/favicon-32x32.png',
         companyName: 'Aerodite',
         location: 'jaipur, chennai',
-        market: 'Airplane',
-        avgSalary: '150k-160k',
-        type: 'Vc firm',
-        star: true,
+        job: 'driver',
+        status: 'On going',
       },
       {
         logoImg: './../../../../assets/images/outer-img/favicon-32x32.png',
         companyName: 'commutauts',
         location: 'jaipur, chennai',
-        market: 'web',
-        avgSalary: '20k-30k',
-        type: 'Incubators',
-        star: false,
+        job: 'manger',
+        status: 'Not selected',
       },
       {
         logoImg: './../../../../assets/images/outer-img/favicon-32x32.png',
         companyName: 'Hamppys',
         location: 'jaipur, chennai',
-        market: 'Gst',
-        avgSalary: '45K-60k',
-        type: 'saas',
-        star: true,
+        job: 'Designer',
+        status: 'On going',
       },
       {
         logoImg: './../../../../assets/images/outer-img/favicon-32x32.png',
         companyName: 'Nansei',
         location: 'jaipur, chennai',
-        market: 'Gst',
-        avgSalary: '45K-60k',
-        type: 'Private company',
-        star: false,
+        job: 'SDE',
+        status: 'Not selected',
       },
     ],
     dropdown_type: [
