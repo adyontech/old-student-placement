@@ -40,14 +40,14 @@
                             </v-layout>
                         </v-flex>
                     </v-layout>
-                    <v-layout class="pt-2" style="border: 1px solid #eeeeee">
+                    <v-layout class="pt-2">
                         <v-flex column>
                             <v-layout class="my-4" style="border-bottom: 1px solid #383838  " row v-for="(item, index) in companyData" :key="index">
                                 <v-flex class="d-flex" md3 offset-md1 text-xs-left>
                                     <div class="ml-3">
                                         <img class="text-xs-right" style="height:25px; width:25px" src="./../../../../assets/images/outer-img/favicon-32x32.png" alt="" srcset="">
                                     </div>
-                                    <router-link class="mx-3 body-2 blue--text" style="text-decoration: none; " to="jobs/124">
+                                    <router-link class="mx-3 body-2 blue--text" style="text-decoration: none; " to="applied/124">
                                         <div class="body-1">{{item.job}}</div>
                                     </router-link>
                                 </v-flex>
@@ -65,6 +65,7 @@
                                     <v-icon class="pb-3">star</v-icon>
                                 </v-flex> -->
                             </v-layout>
+                            <v-divider></v-divider>
                         </v-flex>
                     </v-layout>
                 </v-card>
