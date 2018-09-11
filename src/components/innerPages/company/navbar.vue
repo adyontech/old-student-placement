@@ -1,21 +1,21 @@
 <template>
     <div>
-        <v-toolbar :height="45" flat :ripple="false" color="primary white--text" :class="{'': $vuetify.breakpoint.mdAndUp}">
+        <v-toolbar :height="45" flat :ripple="false" color="blue white--text" :class="{'': $vuetify.breakpoint.mdAndUp}">
 
             <v-toolbar-title class="blue--text pt-3" :class="{'ml-5': $vuetify.breakpoint.mdAndUp}">
-                <router-link color="primary--text" to="/" style="text-decoration:none" exact>
+                <router-link color="blue--text" to="/" style="text-decoration:none" exact>
                     <v-icon class="icons white--text">fab fa-facebook</v-icon>
                 </router-link>
-                <router-link color="primary--text" to="/" style="text-decoration:none" exact>
+                <router-link color="blue--text" to="/" style="text-decoration:none" exact>
                     <v-icon>face</v-icon>
                 </router-link>
-                <router-link color="primary--text" to="/" style="text-decoration:none" exact>
+                <router-link color="blue--text" to="/" style="text-decoration:none" exact>
                     <v-icon>face</v-icon>
                 </router-link>
-                <router-link color="primary--text" to="/" style="text-decoration:none" exact>
+                <router-link color="blue--text" to="/" style="text-decoration:none" exact>
                     <v-icon>face</v-icon>
                 </router-link>
-                <router-link color="primary--text" to="/" style="text-decoration:none" exact>
+                <router-link color="blue--text" to="/" style="text-decoration:none" exact>
                     <v-icon>face</v-icon>
                 </router-link>
             </v-toolbar-title>
@@ -33,20 +33,15 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 // import footer from './../../footer.vue'
 
 export default {
   components: {},
   data() {
     return {
-      icons: [
-        "fab fa-facebook",
-        "fab fa-twitter",
-        "fas fa-at",
-        "fab fa-linkedin"
-      ]
+      icons: ['fab fa-facebook', 'fab fa-twitter', 'fas fa-at', 'fab fa-linkedin'],
     };
-  }
+  },
 };
 </script>
